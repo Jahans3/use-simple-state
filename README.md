@@ -1,6 +1,6 @@
 # <img src="https://raw.githubusercontent.com/Jahans3/use-simple-state/master/uss-logo.png" width="250">
 
-A simple, tiny (*1kb*), dependency-free state manager for React, built using hooks.
+A simple, lightweight (*1kb*), dependency-free state manager for React, built using hooks.
 
 *Note: includes react@16.7.0-alpha.2 as a peer dependency. Once 16.7 ships this will be updated to simply use the latest version of React.*
 
@@ -79,7 +79,7 @@ export default function Counter () {
 See below for the full API.
 
 ## API
-### useSimple
+### `useSimple`
 A custom [React hook](https://reactjs.org/docs/hooks-intro.html) that lets us access our state and `dispatch` function from inside components.
 
 ```js
@@ -103,7 +103,7 @@ mapState(state: Object): *
 mapDispatch(dispatch: Function): *
 ```
 
-### SimpleStateProvider
+### `SimpleStateProvider`
 Wraps our root component and makes state available to our React app.
 
 Has two mandatory props: `initialState` and `reducers`, as well as an optional prop: `middleware`
