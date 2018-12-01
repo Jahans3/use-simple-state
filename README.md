@@ -30,12 +30,12 @@ const initialState = { count: 0 };
 const addOne = () => ({ type: 'ADD_ONE' });
 const minusOne = () => ({ type: 'MINUS_ONE' });
 
-const countReducer = ({ type }, { count }) => {
-  switch (type) {
+const countReducer = (state, action) => {
+  switch (action.type) {
     case 'ADD_ONE':
-      return { count: count + 1 };
+      return { count: state.count + 1 };
     case 'MINUS_ONE':
-      return { count: count - 1 };
+      return { count: state.count - 1 };
 }
 ```
 
@@ -118,12 +118,12 @@ Reducers take an action as well as the current state and use these to derive a n
 
 Reducers should have the following API:
 ```js
-(action, state) => nextState
+(state, action) => nextState
 ```
 
 ##### `middleware`
 Middleware are functions used to handle side effects in our app.
 
-A middleware function is given two parameters: `action` and `state`.
+A middleware function is given two parameters: `state` and `action`.
 
 If any middleware returns `null`, the triggering `action` will be blocked from reaching our `reducers` and the state will not be updated.
