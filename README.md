@@ -105,6 +105,14 @@ function logIn ({ email, password }) {
 dispatch(logIn({ email, password }));
 ```
 
+*Note: `dispatch` will return the result of any async actions, opening up possibilities like chaining promises from `dispatch`*:
+
+```js
+dispatch(logIn({ email, password })).then(() => {
+  // Do stuff...
+});
+```
+
 ## API
 ### `useSimple`
 A custom [React hook](https://reactjs.org/docs/hooks-intro.html) that lets us access our state and `dispatch` function from inside components.
