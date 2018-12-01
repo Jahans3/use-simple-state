@@ -1,3 +1,5 @@
+![useSimpleState](https://i.imgur.com/MAN18CJ.png)
+
 # Use Simple State
 A simple, dependency-free state manager for React using hooks.
 
