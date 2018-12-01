@@ -1,6 +1,5 @@
-<img src="https://github.com/Jahans3/use-simple-state/blob/master/uss-logo.png" width="150">
 
-# Use Simple State
+# Use Simple State <img src="https://github.com/Jahans3/use-simple-state/blob/master/uss-logo.png" width="150">
 A simple, dependency-free state manager for React using hooks.
 
 Note: includes react@16.7.0-alpha.2 and react-dom@16.7.0-alpha.2 as peer dependencies. Once 16.7 ships this will be updated.
