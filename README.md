@@ -1,4 +1,4 @@
-# <img src="https://github.com/Jahans3/use-simple-state/blob/master/uss-logo.png" width="250">
+# <img src="https://raw.githubusercontent.com/Jahans3/use-simple-state/master/uss-logo.png" width="250">
 
 A simple, dependency-free state manager for React, built using hooks.
 
