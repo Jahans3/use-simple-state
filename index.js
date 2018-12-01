@@ -22,8 +22,7 @@ function useStateProvider ({ initialState, reducers, middleware = [] }) {
 
   function dispatch (action) {
     if (typeof action === 'function') {
-      action(dispatch, state);
-      return;
+      return action(dispatch, state);
     }
 
     const continueUpdate = middleware.reduce((result, middleware) => {
