@@ -121,12 +121,30 @@ A custom [React hook](https://reactjs.org/docs/hooks-intro.html) that lets us ac
 useSimple(mapState?: Function, mapDispatch?: Function): Array<mixed>
 ```
 
+###### Usage:
+```js
+const [state, dispatch] = useSimple();
+```
+
+Returns an array containing a `state` object and a `dispatch` function:
+
+* `state` - your state object
+    * If `mapState` is passed to `useSimple` then the computed state is returned instead
+* `dispatch` - a function to pass actions to
+    * If `mapDispatch` is passed to `useSimple` the result will be stored in `dispatch`
+
 Has two optional parameters: `mapState` and `mapDispatch`:
 ##### `mapState`
 If `mapState` is passed, it will be used to compute the output state and the result will be passed to the first element of the array returned by `useSimple`.
 
 ```js
 mapState(state: Object): *
+```
+
+###### Usage
+```js
+const mapState = state => state.countA + state.countB;
+const [computedState, dispatch] = useState(mapState);
 ```
 
 *Note: `null` can also be passed if you want to use `mapDispatch` but have no use for a `mapState` function.*
@@ -136,6 +154,19 @@ mapState(state: Object): *
 
 ```js
 mapDispatch(dispatch: Function): *
+```
+
+###### Usage
+```js
+const mapDispatch = dispatch => ({
+  dispatchA: dispatch(actionA()),
+  dispatchB: dispatch(actionB()),
+  dispatchC: dispatch(actionC())
+});
+const [state, computedDispatch] = useState(null, mapDispatch);
+
+computedDispatch.dispatchA();
+
 ```
 
 ### `SimpleStateProvider`
