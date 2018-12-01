@@ -15,10 +15,10 @@ yarn add use-simple-state
 npm install use-simple-state --save
 ```
 
-Ensure you have the correct version of React installed (this step will be removed in a future release):
+Ensure you have the correct version of React installed, as well the corresponding React-Dom version (this step will be removed in a future release):
 ```
-yarn add react@16.7.0-alpha.2
-npm install react@16.7.0-alpha.2 --save
+yarn add react@16.7.0-alpha.2 react-dom@16.7.0-alpha.2
+npm install react@16.7.0-alpha.2 react-dom@16.7.0-alpha.2 --save
 ```
 
 ## Getting Started
