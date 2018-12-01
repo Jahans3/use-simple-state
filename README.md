@@ -11,7 +11,13 @@ Note: includes react@16.7.0-alpha.2 and react-dom@16.7.0-alpha.2 as peer depende
 Intall using yarn or npm:
 ```
 yarn add use-simple-state
-npm install use-simple-state
+npm install use-simple-state --save
+```
+
+Ensure you have the correct peer dependencies (note that these will be updated when hooks are fully released):
+```
+yarn add react@16.7.0-alpha.2 react-dom@16.7.0-alpha.2
+npm install react@16.7.0-alpha.2 react-dom@16.7.0-alpha.2 --save
 ```
 
 ## Getting Started
