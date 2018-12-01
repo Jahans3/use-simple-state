@@ -2,23 +2,23 @@
 
 A simple, dependency-free state manager for React using hooks.
 
-Note: includes react@16.7.0-alpha.2 and react-dom@16.7.0-alpha.2 as peer dependencies. Once 16.7 ships this will be updated.
+*Note: includes react@16.7.0-alpha.2 as a peer dependency. Once 16.7 ships this will be updated to simply use the latest version of React.*
 
 * [Installation](#installation)
 * [Getting Started](#getting-started)
 * [API](#api)
 
 ## Installation
-Intall using yarn or npm:
+Intall the package using yarn or npm:
 ```
 yarn add use-simple-state
 npm install use-simple-state --save
 ```
 
-Ensure you have the correct peer dependencies (note that these will be updated when hooks are fully released):
+Ensure you have the correct version of React installed (this step will be removed in a future release):
 ```
-yarn add react@16.7.0-alpha.2 react-dom@16.7.0-alpha.2
-npm install react@16.7.0-alpha.2 react-dom@16.7.0-alpha.2 --save
+yarn add react@16.7.0-alpha.2
+npm install react@16.7.0-alpha.2 --save
 ```
 
 ## Getting Started
@@ -80,7 +80,7 @@ See below for the full API.
 
 ## API
 ### useSimple
-A custom [React hook](https://reactjs.org/docs/hooks-intro.html) that lets us access our state and disptcher from inside components.
+A custom [React hook](https://reactjs.org/docs/hooks-intro.html) that lets us access our state and `dispatch` function from inside components.
 
 ```js
 useSimple(mapState?: Function, mapDispatch?: Function): Array<mixed>
