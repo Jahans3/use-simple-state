@@ -1,4 +1,4 @@
-![useSimpleState](./uss-logo.png =150x150)
+![](https://i.imgur.com/MAN18CJ.png =150x150)
 
 # Use Simple State
 A simple, dependency-free state manager for React using hooks.
