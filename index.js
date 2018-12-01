@@ -15,7 +15,7 @@ export function SimpleStateProvider ({ initialState, reducers, middleware, child
   );
 }
 
-function useStateProvider ({ initialState, reducers, middleware }) {
+function useStateProvider ({ initialState, reducers, middleware = [] }) {
   const [state, _dispatch] = useReducer((state, action) => {
     return reducers.reduce((state, reducer) => reducer(action, state) || state, state);
   }, initialState);
