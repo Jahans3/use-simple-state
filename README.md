@@ -119,4 +119,4 @@ Middleware are functions used to handle side effects in our app.
 
 A middleware function is given two parameters: `action` and `state`.
 
-If any middleware returns `null` then `action` will be blocked from reaching our `reducers` and the state will not be updated.
+If any middleware returns `null`, the triggering `action` will be blocked from reaching our `reducers` and the state will not be updated.
