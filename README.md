@@ -2,7 +2,7 @@
 
 A simple, lightweight (*1kb*), dependency-free state manager for React, built using hooks.
 
-*Note: includes react@16.7.0-alpha.2 as a peer dependency. Once 16.7 ships this will be updated to simply use the latest version of React.*
+*Note: includes react@16.7.0-alpha.2 as a peer dependency. Once 16.7 ships this will be updated to use `^react@16.7.0`*
 
 * [Installation](#installation)
 * [Getting Started](#getting-started)
