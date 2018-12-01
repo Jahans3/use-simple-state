@@ -93,7 +93,7 @@ function logIn ({ email, password }) {
     dispatch(logInRequest());
 
     try {
-      const user = await api.authenticateUser({ email, password })'
+      const user = await api.authenticateUser({ email, password });
       dispatch(logInSuccess({ user }));
     } catch (error) {
       dispatch(logInError({ error }));
