@@ -1,4 +1,4 @@
-import React, { createContext, useReducer, useContext } from 'react';
+import { Children, createElement, createContext, useReducer, useContext } from 'react';
 
 const StateContext = createContext(null);
 
@@ -8,10 +8,10 @@ export function useSimple (mapState = s => s, mapDispatch = d => d) {
 }
 
 export function SimpleStateProvider ({ initialState, reducers, middleware, children }) {
-  return (
-    <StateContext.Provider value={useStateProvider({ initialState, reducers, middleware })}>
-      {children}
-    </StateContext.Provider>
+  return createElement(
+    StateContext.Provider,
+    { value: useStateProvider({ initialState, reducers, middleware })},
+    Children.only(children)
   );
 }
 
