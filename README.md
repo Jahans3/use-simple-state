@@ -76,7 +76,34 @@ export default function Counter () {
 }
 ```
 
-See below for the full API.
+## Async Actions
+Comes with built-in support for asynchronous actions by providing a `redux-thunk`-like API.
+
+If a function is passed to `dispatch` it will be called with `dispatch` and `state` as parameters. This allows us to handle async tasks, like the following example of an action used to authenticate a user:
+
+```js
+// Some synchronous actions
+const logInRequest = () => ({ type: 'LOG_IN_REQUEST' });
+const logInSuccess = ({ user }) => ({ type: 'LOG_IN_SUCCESS', payload: user });
+const logInError = ({ error }) => ({ type: 'LOG_IN_ERROR', payload: error });
+
+// Our asynchronous action
+function logIn ({ email, password }) {
+  return async (dispatch, state) => {
+    dispatch(logInRequest());
+
+    try {
+      const user = await api.authenticateUser({ email, password })'
+      dispatch(logInSuccess({ user }));
+    } catch (error) {
+      dispatch(logInError({ error }));
+    }
+  };
+}
+
+// Dispatch logIn like any other action
+dispatch(logIn({ email, password }));
+```
 
 ## API
 ### `useSimple`
