@@ -10,7 +10,7 @@ export function useSimple (mapState = s => s, mapDispatch = d => d) {
 export function SimpleStateProvider ({ initialState, reducers, middleware, children }) {
   return createElement(
     StateContext.Provider,
-    { value: useStateProvider({ initialState, reducers, middleware })},
+    { value: useStateProvider({ initialState, reducers, middleware }) },
     Children.only(children)
   );
 }
