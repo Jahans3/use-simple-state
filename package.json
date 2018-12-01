@@ -1,0 +1,13 @@
+{
+  "name": "use-simple-state",
+  "version": "0.0.1",
+  "description": "A simple, dependency-free state manager for React using hooks.",
+  "main": "index.js",
+  "author": "Josh Jahans",
+  "license": "MIT",
+  "private": false,
+  "peerDependencies": {
+    "react": "^16.7.0-alpha.2",
+    "react-dom": "^16.7.0-alpha.2"
+  }
+}
