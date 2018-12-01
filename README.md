@@ -22,7 +22,7 @@ npm install react@16.7.0-alpha.2 react-dom@16.7.0-alpha.2 --save
 ```
 
 ## Getting Started
-Before we get started, we first need an initial state, as well as actions and at least one reducer:
+Before we get started, we first need an initial state, as well as some actions and at least one reducer:
 
 ```js
 const initialState = { count: 0 };
