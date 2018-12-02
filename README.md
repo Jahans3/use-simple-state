@@ -2,7 +2,7 @@
 
 A simple, lightweight (*1kb*), dependency-free state manager for React, built using hooks.
 
-*Note: includes react@16.7.0-alpha.2 as a peer dependency. Once 16.7 ships this will be updated to use `^react@16.7.0`*
+*Note: lists react@16.7.0-alpha.2 as a peer dependency. Once 16.7 ships this will be updated to use `^react@16.7.0`*
 
 * [Installation](#installation)
 * [Getting Started](#getting-started)
@@ -77,7 +77,7 @@ export default function Counter () {
 ```
 
 ## Async Actions
-Comes with built-in support for asynchronous actions by providing a `redux-thunk`-like API.
+Comes with built-in support for asynchronous actions by providing an API similar to `redux-thunk`.
 
 If a function is passed to `dispatch` it will be called with `dispatch` and `state` as parameters. This allows us to handle async tasks, like the following example of an action used to authenticate a user:
 
@@ -126,14 +126,10 @@ useSimple(mapState?: Function, mapDispatch?: Function): Array<mixed>
 const [state, dispatch] = useSimple();
 ```
 
-Returns an array containing a `state` object and a `dispatch` function:
+Returns an array containing a `state` object and a `dispatch` function.
 
-* `state` - your state object
-    * If `mapState` is passed to `useSimple` then the computed state is returned instead
-* `dispatch` - a function to pass actions to
-    * If `mapDispatch` is passed to `useSimple` the result will be stored in `dispatch`
+`useSimple` has two optional parameters: `mapState` and `mapDispatch`:
 
-Has two optional parameters: `mapState` and `mapDispatch`:
 ##### `mapState`
 If `mapState` is passed, it will be used to compute the output state and the result will be passed to the first element of the array returned by `useSimple`.
 
@@ -170,7 +166,16 @@ computedDispatch.dispatchA();
 ```
 
 ### `SimpleStateProvider`
-Wraps our root component and makes state available to our React app.
+A React component that wraps an app's root component and makes state available to our React app.
+
+###### Usage
+```js
+const Root = () => (
+  <StateProvider state={initialState} reducers={[reducer]} middleware={[middleware]}>
+    <App/>
+  </StateProvider>
+);
+```
 
 Has two mandatory props: `initialState` and `reducers`, as well as an optional prop: `middleware`
 
@@ -188,8 +193,19 @@ Reducers should have the following API:
 ```
 
 ##### `middleware`
-Middleware are functions used to handle side effects in our app.
+
+An array of middleware functions.
+
+Middleware functions are used to handle side effects in our app.
 
 A middleware function is given two parameters: `state` and `action`.
 
 If any middleware returns `null`, the triggering `action` will be blocked from reaching our `reducers` and the state will not be updated.
+
+###### Usage
+```js
+function myMiddleware (action, state) {
+  if (action.type === 'ADD') {
+    console.log(`${state.count} + ${action.payload} = ${state.count + action.payload}`);
+  }
+}
