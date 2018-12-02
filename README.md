@@ -48,7 +48,7 @@ import App from './App';
 
 export default function Root () {
   return (
-    <SimpleStateProvider initialState={initialState} reducers={[reducers]}>
+    <SimpleStateProvider initialState={initialState} reducers={[countReducer]}>
       <App />
     </SimpleStateProvider>
   );
