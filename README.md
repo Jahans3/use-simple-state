@@ -88,18 +88,15 @@ const logInSuccess = ({ user }) => ({ type: 'LOG_IN_SUCCESS', payload: user });
 const logInError = ({ error }) => ({ type: 'LOG_IN_ERROR', payload: error });
 
 // Our asynchronous action
-function logIn ({ email, password }) {
-  return async (dispatch, state) => {
-    dispatch(logInRequest());
-
-    try {
-      const user = await api.authenticateUser({ email, password });
-      dispatch(logInSuccess({ user }));
-    } catch (error) {
-      dispatch(logInError({ error }));
-    }
-  };
-}
+const logIn = ({ email, password }) => async (dispatch, state) => {
+  dispatch(logInRequest());
+  try {
+    const user = await api.authenticateUser({ email, password });
+    dispatch(logInSuccess({ user }));
+  } catch (error) {
+    dispatch(logInError({ error }));
+  }
+};
 
 // Dispatch logIn like any other action
 dispatch(logIn({ email, password }));
