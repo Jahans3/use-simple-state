@@ -1,6 +1,6 @@
 {
   "name": "use-simple-state",
-  "version": "0.0.25",
+  "version": "0.0.26",
   "description": "A simple, dependency-free state manager for React using hooks.",
   "main": "index.js",
   "author": "Josh Jahans",
