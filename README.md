@@ -152,9 +152,9 @@ mapDispatch(dispatch: Function): *
 ###### Usage
 ```js
 const mapDispatch = dispatch => ({
-  dispatchA: dispatch(actionA()),
-  dispatchB: dispatch(actionB()),
-  dispatchC: dispatch(actionC())
+  dispatchA: () => dispatch(actionA()),
+  dispatchB: () => dispatch(actionB()),
+  dispatchC: () => dispatch(actionC())
 });
 const [state, computedDispatch] = useState(null, mapDispatch);
 
