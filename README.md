@@ -137,7 +137,7 @@ mapState(state: Object): *
 ###### Usage
 ```js
 const mapState = state => state.countA + state.countB;
-const [computedState, dispatch] = useState(mapState);
+const [computedState, dispatch] = useSimple(mapState);
 ```
 
 *Note: `null` can also be passed if you want to use `mapDispatch` but have no use for a `mapState` function.*
@@ -156,7 +156,7 @@ const mapDispatch = dispatch => ({
   dispatchB: () => dispatch(actionB()),
   dispatchC: () => dispatch(actionC())
 });
-const [state, computedDispatch] = useState(null, mapDispatch);
+const [state, computedDispatch] = useSimple(null, mapDispatch);
 
 computedDispatch.dispatchA();
 
