@@ -1,11 +1,12 @@
 {
   "name": "use-simple-state",
-  "version": "0.0.29-alpha",
+  "version": "0.0.29-alpha.1",
   "description": "A simple, dependency-free state manager for React using hooks.",
   "main": "index.js",
   "author": "Josh Jahans",
   "license": "MIT",
   "private": false,
+  "keywords": ["react", "state", "simple", "hooks", "redux"],
   "peerDependencies": {
     "react": "^16.7.0-alpha.2"
   }
