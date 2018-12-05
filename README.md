@@ -76,6 +76,31 @@ export default function Counter () {
 }
 ```
 
+## Caveat
+Hooks don't yet provide a way for us to bail out of rendering, the React team have indicated that this functionality
+will be available once hooks are fully released.
+
+In the meantime I've provided a `SimpleConsumer` to consume our state using the old context API:
+
+```js
+import { SimpleConsumer } from 'use-simple-state';
+
+export default function Counter () {
+  const [state, dispatch] = useSimple();
+  return (
+    <SimpleConsumer mapState={({ count }) => ({ count })}>
+      {({ state, dispatch }) => (
+        <>
+          <h1>Count: {state.count}</h1>
+          <button onClick={() => dispatch(addOne())}> +1 </button>
+          <button onClick={() => dispatch(minusOne())}> -1 </button>
+        </>
+      )}
+    </SimpleConsumer>
+  );
+}
+```
+
 ## Async Actions
 Comes with built-in support for asynchronous actions by providing an API similar to `redux-thunk`.
 
