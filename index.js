@@ -38,15 +38,12 @@ function shallowCompare (state, nextState) {
 class ConnectState extends React.Component {
   state = this.props.mapState(this.props.state);
 
-  shouldComponentUpdate (nextProps) {
-    const hasChanged = shallowCompare(this.state, this.props.mapState(nextProps.state));
+  static getDerivedStateFromProps ({ state, mapState }) {
+    return mapState(state);
+  }
 
-    if (hasChanged) {
-      this.setState(this.props.mapState(nextProps.state));
-      return true;
-    }
-
-    return false;
+  shouldComponentUpdate (nextProps, nextState) {
+    return shallowCompare(this.state, nextState);
   }
 
   render () {
