@@ -87,7 +87,6 @@ every state change, but rather will only update when the specific part of the st
 import { SimpleConsumer } from 'use-simple-state';
 
 export default function Counter () {
-  const [state, dispatch] = useSimple();
   return (
     <SimpleConsumer mapState={({ count }) => ({ count })}>
       {({ state, dispatch }) => (
