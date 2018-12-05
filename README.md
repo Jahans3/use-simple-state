@@ -1,6 +1,6 @@
 # <img src="https://raw.githubusercontent.com/Jahans3/use-simple-state/master/uss-logo.png" width="250">
 
-A simple, lightweight (*1kb*), dependency-free state manager for React, built using hooks.
+A simple, lightweight (*2kb*), dependency-free state manager for React, built using hooks.
 
 *Note: lists react@16.7.0-alpha.2 as a peer dependency. Once 16.7 ships this will be updated to use `^react@16.7.0`*
 
