@@ -80,7 +80,8 @@ export default function Counter () {
 Hooks don't yet provide a way for us to bail out of rendering, *although the React team have indicated that this functionality
 will be available once hooks are fully released*.
 
-In the meantime I've provided a `SimpleConsumer` to consume our state using the old context API:
+In the meantime I've provided a `SimpleConsumer` to consume our state using the old context API. This means our connected components won't re-render on
+every state change, but rather will only update when the specific part of the store they're subscribed to changes.
 
 ```js
 import { SimpleConsumer } from 'use-simple-state';
