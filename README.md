@@ -77,8 +77,8 @@ export default function Counter () {
 ```
 
 ## Caveat
-Hooks don't yet provide a way for us to bail out of rendering, the React team have indicated that this functionality
-will be available once hooks are fully released.
+Hooks don't yet provide a way for us to bail out of rendering, *although the React team have indicated that this functionality
+will be available once hooks are fully released*.
 
 In the meantime I've provided a `SimpleConsumer` to consume our state using the old context API:
 
