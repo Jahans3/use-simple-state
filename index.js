@@ -32,7 +32,7 @@ function shallowCompare (state, nextState) {
     return false;
   }
 
-  return Object.entries(state).reduce((shouldUpdate, [key, value]) => nextState[key] !== value ? true : shouldUpdate, false);
+  return Object.entries(nextState).reduce((shouldUpdate, [key, value]) => state[key] !== value ? true : shouldUpdate, false);
 }
 
 class ConnectState extends React.Component {
