@@ -24,9 +24,9 @@ export function SimpleConsumer ({ mapState, mapDispatch, children }) {
 }
 
 class ConnectState extends Component {
-  state = this.props.mapState(this.props.state);
+  state;
 
-  static getDerivedStateFromProps ({ state, mapState }) {
+  static getDerivedStateFromProps ({ state, mapState = s => s }) {
     return mapState(state);
   }
 
