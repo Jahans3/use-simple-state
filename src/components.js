@@ -20,7 +20,7 @@ export function SimpleConsumer ({ mapState, mapDispatch, children }) {
       { state, dispatch, mapState, mapDispatch },
       children
     )
-  )
+  );
 }
 
 class ConnectState extends Component {
