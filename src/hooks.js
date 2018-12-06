@@ -1,4 +1,4 @@
-import React, { useContext, useReducer } from 'react';
+import { useContext, useReducer } from 'react';
 import { StateContext } from './context';
 
 export function useSimple (mapState, mapDispatch) {

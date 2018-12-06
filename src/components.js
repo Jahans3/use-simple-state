@@ -1,4 +1,4 @@
-import React, { createElement, Children, Component } from 'react';
+import { createElement, Children, Component } from 'react';
 import { StateContext } from './context';
 import { useStateProvider } from './hooks';
 import { shallowCompare } from './shallow-compare';
