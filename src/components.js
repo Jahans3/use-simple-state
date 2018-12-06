@@ -1,4 +1,4 @@
-import { createElement, Children, Component } from 'react';
+import { createElement, Component } from 'react';
 import { StateContext } from './context';
 import { useStateProvider } from './hooks';
 import { shallowCompare } from './shallow-compare';
@@ -7,7 +7,7 @@ export function SimpleStateProvider ({ initialState, reducers, middleware, child
   return createElement(
     StateContext.Provider,
     { value: useStateProvider({ initialState, reducers, middleware }) },
-    Children.only(children)
+    children
   );
 }
 
@@ -18,13 +18,13 @@ export function SimpleConsumer ({ mapState, mapDispatch, children }) {
     ({ state, dispatch }) => createElement(
       ConnectState,
       { state, dispatch, mapState, mapDispatch },
-      Children.only(children)
+      children
     )
   )
 }
 
 class ConnectState extends Component {
-  state;
+  state = {};
 
   static getDerivedStateFromProps ({ state, mapState = s => s }) {
     return mapState(state);
