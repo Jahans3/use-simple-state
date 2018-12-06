@@ -1,3 +1,8 @@
 yarn.lock
 yarn-error.log
 uss-logo.png
+src/
+index.js
+webpack.config.js
+.cache
+.DS_Store

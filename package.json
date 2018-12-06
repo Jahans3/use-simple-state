@@ -2,7 +2,10 @@
   "name": "use-simple-state",
   "version": "0.0.1-alpha.9",
   "description": "A simple, dependency-free state manager for React using hooks.",
-  "main": "index.js",
+  "scripts": {
+    "build": "webpack --config webpack.config.js"
+  },
+  "main": "lib/main.js",
   "author": "Josh Jahans",
   "license": "MIT",
   "private": false,
@@ -15,5 +18,15 @@
   ],
   "peerDependencies": {
     "react": "^16.7.0-alpha.2"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.2.0",
+    "@babel/plugin-proposal-class-properties": "^7.2.1",
+    "babel-loader": "^8.0.4",
+    "webpack": "^4.27.1",
+    "webpack-cli": "^3.1.2"
+  },
+  "dependencies": {
+    "react": "^16.6.3"
   }
 }
