@@ -1,6 +1,6 @@
 {
   "name": "use-simple-state",
-  "version": "0.0.1-alpha.14",
+  "version": "0.0.1-alpha.15",
   "description": "A simple, dependency-free state manager for React using hooks.",
   "scripts": {
     "build": "webpack --config webpack.config.js"
