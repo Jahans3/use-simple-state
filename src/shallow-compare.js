@@ -8,7 +8,11 @@ export function shallowCompare (state, nextState) {
     return false;
   }
 
-  return Object.entries(nextState).reduce((shouldUpdate, [key, value]) => {
-    return state[key] !== value ? true : shouldUpdate;
-  }, false);
+  for (const [key, value] of Object.entries(nextState)) {
+    if (value !== state[key]) {
+      return false;
+    }
+  }
+
+  return true;
 }
