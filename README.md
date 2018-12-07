@@ -230,6 +230,7 @@ function myMiddleware (action, state) {
     console.log(`${state.count} + ${action.payload} = ${state.count + action.payload}`);
   }
 }
+```
 
 ### `SimpleStateConsumer`
 A React component that is used to access the state context with a similar API to the `useSimple` hook.
