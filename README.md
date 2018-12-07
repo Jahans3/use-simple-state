@@ -257,7 +257,7 @@ subscribes to specific changes in the state. If no `mapState` is passed, your co
 The following props are identical to those of `useSimple`.
 
 ##### `mapState`
-If `mapState` is passed, it will be used to compute the output state and the result will be passed to the first element of the array returned by `useSimple`.
+If `mapState` is passed, it will be used to compute the output state and the result will be passed to the `state` key of `SimpleStateConsumer`'s render prop.
 
 ```js
 mapState(state: Object): *
@@ -276,10 +276,8 @@ const Total = () => (
 );
 ```
 
-*Note: `null` can also be passed if you want to use `mapDispatch` but have no use for a `mapState` function.*
-
 ##### `mapDispatch`
-`mapDispatch` can be used to pre-wrap actions in `dispatch`. If `mapDispatch` is passed, the result will be given as the second element of the array returned by `useSimple`.
+`mapDispatch` can be used to pre-wrap actions in `dispatch`. If `mapDispatch` is passed, the result will be passed to the `dispatch` property of `SimpleStateConsumer`'s render prop.
 
 ```js
 mapDispatch(dispatch: Function): *
