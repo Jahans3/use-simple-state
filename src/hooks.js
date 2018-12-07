@@ -4,7 +4,7 @@ import { StateContext } from './context';
 export function useSimple (mapState, mapDispatch) {
   const { state, dispatch } = useContext(StateContext);
   return [
-    (mapState === null || !mapState) ? state : mapState(state),
+    mapState ? mapState(state) : state,
     mapDispatch ? mapDispatch(dispatch) : dispatch
   ];
 }
