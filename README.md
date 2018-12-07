@@ -80,15 +80,15 @@ export default function Counter () {
 Hooks don't yet provide a way for us to bail out of rendering, *although the React team have indicated that this functionality
 will be available once hooks are fully released*.
 
-In the meantime I've provided a `SimpleConsumer` to consume our state using a consumer similar to the default one returned by `React.createContext`. This means our connected components won't re-render on
+In the meantime I've provided a `SimpleStateConsumer` to consume our state using a consumer similar to the default one returned by `React.createContext`. This means our connected components won't re-render on
 every state change, but rather will only update when the specific part of the store they're subscribed to changes.
 
 ```js
-import { SimpleConsumer } from 'use-simple-state';
+import { SimpleStateConsumer } from 'use-simple-state';
 
 export default function Counter () {
   return (
-    <SimpleConsumer mapState={({ count }) => ({ count })}>
+    <SimpleStateConsumer mapState={({ count }) => ({ count })}>
       {({ state, dispatch }) => (
         <>
           <h1>Count: {state.count}</h1>
@@ -96,7 +96,7 @@ export default function Counter () {
           <button onClick={() => dispatch(minusOne())}> -1 </button>
         </>
       )}
-    </SimpleConsumer>
+    </SimpleStateConsumer>
   );
 }
 ```
@@ -161,7 +161,7 @@ mapState(state: Object): *
 
 ###### Usage
 ```js
-const mapState = state => state.countA + state.countB;
+const mapState = state => ({ total: state.countA + state.countB });
 const [computedState, dispatch] = useSimple(mapState);
 ```
 
@@ -184,7 +184,6 @@ const mapDispatch = dispatch => ({
 const [state, computedDispatch] = useSimple(null, mapDispatch);
 
 computedDispatch.dispatchA();
-
 ```
 
 ### `SimpleStateProvider`
@@ -231,3 +230,78 @@ function myMiddleware (action, state) {
     console.log(`${state.count} + ${action.payload} = ${state.count + action.payload}`);
   }
 }
+
+### `SimpleStateConsumer`
+A React component that is used to access the state context with a similar API to the `useSimple` hook.
+
+*Note: this component is a temporary workaround to be used until hooks are able to bail us out of the rendering process.*
+
+###### Usage
+```js
+const Greeting = () => (
+  <SimpleStateConsumer>
+    {({ state, dispatch }) => (
+      <>
+        <h1>{state.greeting}</h1>
+        <button onClick={() => dispatch(setGreeting('hello'))}> Change greeting </button>
+      </>
+    )}
+  </SimpleStateConsumer>
+);
+```
+
+Has two optional props: `mapState` and `mapDispatch`. Use of `mapState` is strongly encouraged so that each consumer only
+subscribes to specific changes in the state. If no `mapState` is passed, your consumer will re-render on every single state change.
+
+The following props are identical to those of `useSimple`.
+
+##### `mapState`
+If `mapState` is passed, it will be used to compute the output state and the result will be passed to the first element of the array returned by `useSimple`.
+
+```js
+mapState(state: Object): *
+```
+
+###### Usage
+```js
+const mapState = state => ({ total: state.countA + state.countB });
+
+const Total = () => (
+  <SimpleStateConsumer mapState={mapState}>
+    {({ state }) => (
+      <span>Total: {state.total}</span>
+    )}
+  </SimpleStateConsumer>
+);
+```
+
+*Note: `null` can also be passed if you want to use `mapDispatch` but have no use for a `mapState` function.*
+
+##### `mapDispatch`
+`mapDispatch` can be used to pre-wrap actions in `dispatch`. If `mapDispatch` is passed, the result will be given as the second element of the array returned by `useSimple`.
+
+```js
+mapDispatch(dispatch: Function): *
+```
+
+###### Usage
+```js
+const mapDispatch = dispatch => ({
+  dispatchA: () => dispatch(actionA()),
+  dispatchB: () => dispatch(actionB()),
+  dispatchC: () => dispatch(actionC())
+});
+
+const Dispatcher = () => (
+  <SimpleStateConsumer mapDispatch={mapDispatch}>
+    {({ dispatch }) => (
+      <>
+        <button onClick={dispatch.dispatchA}>Dispatch A</button>
+        <button onClick={dispatch.dispatchB}>Dispatch B</button>
+        <button onClick={dispatch.dispatchC}>Dispatch C</button>
+      </>
+    )}
+  </SimpleStateConsumer>
+);
+```
+

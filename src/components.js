@@ -11,7 +11,7 @@ export function SimpleStateProvider ({ initialState, reducers, middleware, child
   );
 }
 
-export function SimpleConsumer ({ mapState, mapDispatch, children }) {
+export function SimpleStateConsumer ({ mapState, mapDispatch, children }) {
   return createElement(
     StateContext.Consumer,
     null,
