@@ -156,7 +156,7 @@ Returns an array containing a `state` object and a `dispatch` function.
 If `mapState` is passed, it will be used to compute the output state and the result will be passed to the first element of the array returned by `useSimple`.
 
 ```js
-mapState(state: Object): *
+mapState(state: Object): Object
 ```
 
 ###### Usage
@@ -171,7 +171,7 @@ const [computedState, dispatch] = useSimple(mapState);
 `mapDispatch` can be used to pre-wrap actions in `dispatch`. If `mapDispatch` is passed, the result will be given as the second element of the array returned by `useSimple`.
 
 ```js
-mapDispatch(dispatch: Function): *
+mapDispatch(dispatch: Function): Object
 ```
 
 ###### Usage
@@ -260,7 +260,7 @@ The following props are identical to those of `useSimple`.
 If `mapState` is passed, it will be used to compute the output state and the result will be passed to the `state` key of `SimpleStateConsumer`'s render prop.
 
 ```js
-mapState(state: Object): *
+mapState(state: Object): Object
 ```
 
 ###### Usage
@@ -280,7 +280,7 @@ const Total = () => (
 `mapDispatch` can be used to pre-wrap actions in `dispatch`. If `mapDispatch` is passed, the result will be passed to the `dispatch` property of `SimpleStateConsumer`'s render prop.
 
 ```js
-mapDispatch(dispatch: Function): *
+mapDispatch(dispatch: Function): Object
 ```
 
 ###### Usage
