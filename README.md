@@ -171,7 +171,7 @@ const [computedState, dispatch] = useSimple(mapState);
 `mapDispatch` can be used to pre-wrap actions in `dispatch`. If `mapDispatch` is passed, the result will be given as the second element of the array returned by `useSimple`.
 
 ```js
-mapDispatch(dispatch: Function): Object
+mapDispatch(dispatch: Function): *
 ```
 
 ###### Usage
@@ -280,7 +280,7 @@ const Total = () => (
 `mapDispatch` can be used to pre-wrap actions in `dispatch`. If `mapDispatch` is passed, the result will be passed to the `dispatch` property of `SimpleStateConsumer`'s render prop.
 
 ```js
-mapDispatch(dispatch: Function): Object
+mapDispatch(dispatch: Function): *
 ```
 
 ###### Usage
