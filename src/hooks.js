@@ -11,7 +11,7 @@ export function useSimple (mapState, mapDispatch) {
 
 export function useStateProvider ({ initialState, reducers, middleware = [] }) {
   const [state, _dispatch] = useReducer((state, action) => {
-    return reducers.reduce((state, reducer) => reducer(state, action) || state, state);
+    return reducers.reduce((nextState, reducer) => reducer(nextState, action) || nextState, state);
   }, initialState);
 
   function dispatch (action) {
