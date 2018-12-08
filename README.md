@@ -9,7 +9,7 @@ A simple, lightweight (*3kb*), dependency-free state manager for React, built us
 * [API](#api)
 
 ## Installation
-Intall the package using yarn or npm:
+Install the package using yarn or npm:
 ```
 yarn add use-simple-state
 npm install use-simple-state --save
