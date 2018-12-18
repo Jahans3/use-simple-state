@@ -57,15 +57,15 @@ export default function Root () {
 
 And that's it.
 
-Now whenever we want to access or update our state, we just import the `useSimple` hook:
+Now whenever we want to access or update our state, we just import the `useSimpleState` hook:
 
 ```js
 import React from 'react';
-import { useSimple } from 'use-simple-state';
+import { useSimpleState } from 'use-simple-state';
 import { addOne, minusOne } from './store';
 
 export default function Counter () {
-  const [state, dispatch] = useSimple();
+  const [state, dispatch] = useSimpleState();
   return (
     <>
       <h1>Count: {state.count}</h1>
@@ -136,24 +136,24 @@ dispatch(logIn({ email, password })).then(() => {
 ```
 
 ## API
-### `useSimple`
+### `useSimpleState`
 A custom [React hook](https://reactjs.org/docs/hooks-intro.html) that lets us access our state and `dispatch` function from inside components.
 
 ```js
-useSimple(mapState?: Function, mapDispatch?: Function): Array<mixed>
+useSimpleState(mapState?: Function, mapDispatch?: Function): Array<mixed>
 ```
 
 ###### Usage:
 ```js
-const [state, dispatch] = useSimple();
+const [state, dispatch] = useSimpleState();
 ```
 
 Returns an array containing a `state` object and a `dispatch` function.
 
-`useSimple` has two optional parameters: `mapState` and `mapDispatch`:
+`useSimpleState` has two optional parameters: `mapState` and `mapDispatch`:
 
 ##### `mapState`
-If `mapState` is passed, it will be used to compute the output state and the result will be passed to the first element of the array returned by `useSimple`.
+If `mapState` is passed, it will be used to compute the output state and the result will be passed to the first element of the array returned by `useSimpleState`.
 
 ```js
 mapState(state: Object): Object
@@ -162,13 +162,13 @@ mapState(state: Object): Object
 ###### Usage
 ```js
 const mapState = state => ({ total: state.countA + state.countB });
-const [computedState, dispatch] = useSimple(mapState);
+const [computedState, dispatch] = useSimpleState(mapState);
 ```
 
 *Note: `null` can also be passed if you want to use `mapDispatch` but have no use for a `mapState` function.*
 
 ##### `mapDispatch`
-`mapDispatch` can be used to pre-wrap actions in `dispatch`. If `mapDispatch` is passed, the result will be given as the second element of the array returned by `useSimple`.
+`mapDispatch` can be used to pre-wrap actions in `dispatch`. If `mapDispatch` is passed, the result will be given as the second element of the array returned by `useSimpleState`.
 
 ```js
 mapDispatch(dispatch: Function): *
@@ -181,7 +181,7 @@ const mapDispatch = dispatch => ({
   dispatchB: () => dispatch(actionB()),
   dispatchC: () => dispatch(actionC())
 });
-const [state, computedDispatch] = useSimple(null, mapDispatch);
+const [state, computedDispatch] = useSimpleState(null, mapDispatch);
 
 computedDispatch.dispatchA();
 ```
@@ -233,7 +233,7 @@ function myMiddleware (action, state) {
 ```
 
 ### `SimpleStateConsumer`
-A React component that is used to access the state context with a similar API to the `useSimple` hook.
+A React component that is used to access the state context with a similar API to the `useSimpleState` hook.
 
 *Note: this component is a temporary workaround to be used until hooks are able to bail us out of the rendering process.*
 
@@ -254,7 +254,7 @@ const Greeting = () => (
 Has two optional props: `mapState` and `mapDispatch`. Use of `mapState` is strongly encouraged so that each consumer only
 subscribes to specific changes in the state. If no `mapState` is passed, your consumer will re-render on every single state change.
 
-The following props are identical to those of `useSimple`.
+The following props are identical to those of `useSimpleState`.
 
 ##### `mapState`
 If `mapState` is passed, it will be used to compute the output state and the result will be passed to the `state` key of `SimpleStateConsumer`'s render prop.

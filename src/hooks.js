@@ -1,7 +1,7 @@
 import { useContext, useReducer } from 'react';
 import { StateContext } from './context';
 
-export function useSimple (mapState, mapDispatch) {
+export function useSimpleState (mapState, mapDispatch) {
   const { state, dispatch } = useContext(StateContext);
   return [
     mapState ? mapState(state) : state,
