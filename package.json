@@ -1,9 +1,10 @@
 {
   "name": "use-simple-state",
-  "version": "0.0.1-beta.10",
+  "version": "0.0.1-beta.11",
   "description": "A simple, dependency-free state manager for React using hooks.",
   "scripts": {
-    "build": "webpack --config webpack.config.js"
+    "build": "webpack --config webpack.config.js",
+    "release": "yarn build && yarn publish"
   },
   "main": "lib/main.js",
   "author": "Josh Jahans",
