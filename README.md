@@ -2,7 +2,7 @@
 
 A simple, lightweight (*3kb*), dependency-free state manager for React, built using hooks.
 
-*Note: lists react@16.7.0-alpha.2 as a peer dependency. Once 16.7 ships this will be updated to use `^react@16.7.0`*
+*Note: require react and react-dom @ 16.7.0 or higher*
 
 * [Installation](#installation)
 * [Getting Started](#getting-started)
@@ -13,12 +13,6 @@ Install the package using yarn or npm:
 ```
 yarn add use-simple-state
 npm install use-simple-state --save
-```
-
-Ensure you have the correct version of `react` installed, as well the corresponding `react-dom` version (this step will be removed in a future release):
-```
-yarn add react@16.7.0-alpha.2 react-dom@16.7.0-alpha.2
-npm install react@16.7.0-alpha.2 react-dom@16.7.0-alpha.2 --save
 ```
 
 ## Getting Started
@@ -77,8 +71,7 @@ export default function Counter () {
 ```
 
 ## Caveat
-Hooks don't yet provide a way for us to bail out of rendering, *although the React team have indicated that this functionality
-will be available once hooks are fully released*.
+Hooks don't yet provide a way for us to bail out of rendering, *although it currently looks as though this may be added in a future release (you can [follow the dicussion here](https://github.com/facebook/react/issues/14110))*.
 
 In the meantime I've provided a `SimpleStateConsumer` to consume our state using a consumer similar to the default one returned by `React.createContext`. This means our connected components won't re-render on
 every state change, but rather will only update when the specific part of the store they're subscribed to changes.
