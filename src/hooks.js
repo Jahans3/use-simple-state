@@ -9,10 +9,12 @@ export function useSimpleState (mapState, mapDispatch) {
   ];
 }
 
+function reduceState (reducers, state, action) {
+  return reducers.reduce((nextState, reducer) => reducer(nextState, action) || nextState, state);
+}
+
 export function useStateProvider ({ initialState, reducers, middleware = [] }) {
-  const [state, _dispatch] = useReducer((state, action) => {
-    return reducers.reduce((nextState, reducer) => reducer(nextState, action) || nextState, state);
-  }, initialState);
+  const [state, _dispatch] = useReducer((state, action) => reduceState(reducers, state, action), initialState);
 
   function dispatch (action) {
     if (typeof action === 'function') {
@@ -20,7 +22,7 @@ export function useStateProvider ({ initialState, reducers, middleware = [] }) {
     }
 
     const continueUpdate = middleware.reduce((result, middleware) => {
-      return result !== null ? middleware(action, state) : result;
+      return result !== null ? middleware(action, state, () => reduceState(reducers, state, action)) : result;
     }, undefined);
 
     if (continueUpdate !== null) {
