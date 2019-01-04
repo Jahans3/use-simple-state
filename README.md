@@ -2,7 +2,7 @@
 
 A simple, lightweight (*3kb*), dependency-free state manager for React, built using hooks.
 
-*Note: require react and react-dom @ 16.7.0 or higher*
+*Note: requires react and react-dom @ 16.7.0-alpha.2 or higher*
 
 * [Installation](#installation)
 * [Getting Started](#getting-started)
