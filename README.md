@@ -302,6 +302,6 @@ const Dispatcher = () => (
 );
 ```
 
-##### ConnectStateComponent
+##### `ConnectStateComponent`
 Optionally provide your own `ConnectState`. Normally you would subclass `ConnectState` and override the `shouldComponentUpdate`
 
