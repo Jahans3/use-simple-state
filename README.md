@@ -1,3 +1,8 @@
+# this is a fork of [Jahans3/use-simple-state](https://github.com/Jahans3/use-simple-state)
+- published under `@kessler/use-simple-state` (for now)
+- does not package source into lib/main.js
+- Allow you to provide a custom `ConnectState` 
+
 # <img src="https://raw.githubusercontent.com/Jahans3/use-simple-state/master/uss-logo.png" width="250">
 
 A simple, lightweight (*3kb*), dependency-free state manager for React, built using hooks.
@@ -244,7 +249,7 @@ const Greeting = () => (
 );
 ```
 
-Has two optional props: `mapState` and `mapDispatch`. Use of `mapState` is strongly encouraged so that each consumer only
+Has three optional props: `mapState`, `mapDispatch` and `ConnectStateComponent`. Use of `mapState` is strongly encouraged so that each consumer only
 subscribes to specific changes in the state. If no `mapState` is passed, your consumer will re-render on every single state change.
 
 The following props are identical to those of `useSimpleState`.
@@ -296,4 +301,7 @@ const Dispatcher = () => (
   </SimpleStateConsumer>
 );
 ```
+
+##### ConnectStateComponent
+Optionally provide your own `ConnectState`. Normally you would subclass `ConnectState` and override the `shouldComponentUpdate`
 
