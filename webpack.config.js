@@ -1,5 +1,6 @@
 const path = require('path');
 const webpack = require('webpack');
+const CopyPlugin = require('copy-webpack-plugin');
 
 module.exports = {
   mode: 'production',
@@ -25,13 +26,14 @@ module.exports = {
       }
     ]
   },
+  plugins: [new CopyPlugin([{ from: './index.d.ts', to: './main.d.ts' }])],
   externals: {
     react: {
       root: 'React',
       commonjs2: 'react',
       commonjs: 'react',
       amd: 'react',
-      umd: 'react',
+      umd: 'react'
     }
   }
 };
