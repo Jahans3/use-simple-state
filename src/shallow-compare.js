@@ -5,14 +5,14 @@ export function shallowCompare (state, nextState) {
     || typeof nextState !== 'object'
     || nextState === null
   ) {
-    return false;
+    return true;
   }
 
   for (const [key, value] of Object.entries(nextState)) {
     if (value !== state[key]) {
-      return false;
+      return true;
     }
   }
 
-  return true;
+  return false;
 }
